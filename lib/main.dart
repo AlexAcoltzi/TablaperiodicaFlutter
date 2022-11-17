@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tablaperiodicagame/pages/Initial.dart';
 import 'package:tablaperiodicagame/pages/home.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.lightGreen,
       ),
-      home: const Home(),
+      home: const InicialPage(),
     );
   }
 }
