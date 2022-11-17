@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tablaperiodicagame/pages/home_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
-  String _title = '';
+  String _title = 'Inicio';
   final PageController _pageController = PageController();
 
   @override
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
           pageChanged(index);
         },
         children: [
-          Container(color: Colors.blue, child: const Text('Inicio'),),
+          const Inicio(),
           Container(color: Colors.green, child: const Text('Lectura'),),
           Container(color: Colors.purple, child: const Text('Tabla'),),
           Container(color: Colors.red, child: const Text('Más'),),
