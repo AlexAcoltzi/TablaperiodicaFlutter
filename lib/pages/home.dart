@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tablaperiodicagame/pages/home_page.dart';
 
+import 'home_page_propiedades.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -28,7 +30,7 @@ class _HomeState extends State<Home> {
         },
         children: [
           const Inicio(),
-          Container(color: Colors.green, child: const Text('Lectura'),),
+          const InicioProp(),
           Container(color: Colors.purple, child: const Text('Tabla'),),
           Container(color: Colors.red, child: const Text('Más'),),
         ],
@@ -39,20 +41,20 @@ class _HomeState extends State<Home> {
         onTap: onItemTapped,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Inicio'
+              icon: Icon(Icons.abc),
+              label: 'Elementos'
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.book),
-            label: 'Lectura'
+              icon: Icon(CupertinoIcons.archivebox),
+              label: 'Propiedades'
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.table),
             label: 'Tabla',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.more_horiz_sharp),
-            label: 'Más'
+              icon: Icon(Icons.more_horiz_sharp),
+              label: 'Más'
           )
         ],
       ),
@@ -63,8 +65,8 @@ class _HomeState extends State<Home> {
     setState(() {
       _currentIndex = index;
       switch(index){
-        case 0: {_title = 'Inicio'; } break;
-        case 1: {_title = 'Lectura'; } break;
+        case 0: {_title = 'Elementos'; } break;
+        case 1: {_title = 'Propiedades'; } break;
         case 2: {_title = 'Tabla'; } break;
         case 3: {_title = 'Más'; } break;
       }
