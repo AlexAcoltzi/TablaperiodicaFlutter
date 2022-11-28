@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tablaperiodicagame/pages/elementos_game.dart';
+import 'home.dart';
 
 class Inicio extends StatelessWidget {
   const Inicio({Key? key}) : super(key: key);
@@ -67,7 +69,10 @@ class Inicio extends StatelessWidget {
                               ],
                             ),
                             onTap: (){
-                              print('Row $index');
+                              print('Index: $index');
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => GameElement(indexValue: index))
+                              );
                             },
                           ),
                         );
