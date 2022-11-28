@@ -58,7 +58,7 @@ class Propiedades extends StatelessWidget {
               ),Positioned(
                   top: 164,
                   left: 151,
-                  child: Text(tablaPeriodicaJson[indexValue].atomicNomber.toString(), textAlign: TextAlign.left, style: TextStyle(
+                  child: Text(tablaPeriodicaJson[indexValue].masa, textAlign: TextAlign.left, style: TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 1),
                       fontFamily: 'Inter',
                       fontSize: 128,
