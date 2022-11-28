@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tablaperiodicagame/pages/propiedades_game.dart';
 
 class InicioProp extends StatelessWidget {
   const InicioProp({Key? key}) : super(key: key);
@@ -68,6 +69,9 @@ class InicioProp extends StatelessWidget {
                             ),
                             onTap: (){
                               print('Row $index');
+                              Navigator.push(context, 
+                              MaterialPageRoute(builder: (context) => Propiedades(indexValue: index))
+                              );
                             },
                           ),
                         );
