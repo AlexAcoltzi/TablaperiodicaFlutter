@@ -37,6 +37,7 @@ class Inicio extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent (maxCrossAxisExtent: 150),
                       itemBuilder: (BuildContext context, int index){
+                        int indexTransformed = index+1;
                         print('_builderGridViewBuilder $index');
 
                         return Card(
@@ -60,7 +61,7 @@ class Inicio extends StatelessWidget {
                                 ),
                                 const Divider(),
                                 Text(
-                                  'Nivel $index',
+                                  'Nivel $indexTransformed',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontSize: 16,

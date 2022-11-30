@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tablaperiodicagame/pages/home_page.dart';
+import 'package:tablaperiodicagame/pages/tablaImage.dart';
 
 import 'home_page_propiedades.dart';
+import 'more_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -31,8 +33,8 @@ class _HomeState extends State<Home> {
         children: [
           const Inicio(),
           const InicioProp(),
-          Container(color: Colors.purple, child: const Text('Tabla'),),
-          Container(color: Colors.red, child: const Text('Más'),),
+          const tablaImage(),
+          const ElemetsTable(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
