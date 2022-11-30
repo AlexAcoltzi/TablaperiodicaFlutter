@@ -32,7 +32,6 @@ class ElemetsTable extends StatelessWidget {
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                 ),
-                color : Color.fromRGBO(179, 2255, 179, 1),
               ),
                 child: GridView.builder(
                     itemCount: TablaPeriodicaJson.length,
@@ -41,8 +40,9 @@ class ElemetsTable extends StatelessWidget {
                     itemBuilder: (context, index){
                       final elemento = TablaPeriodicaJson[index];
                       return Card(
-                        color: Color.fromRGBO(30, 161, 116, 1.0),
+                        color: Color.fromRGBO(179, 2255, 179, 1.0),
                         margin: const EdgeInsets.all(8),
+
                         child: InkWell(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -59,6 +59,7 @@ class ElemetsTable extends StatelessWidget {
                             ],
                           ),
                           onTap: (){
+
                             Navigator.push(
                                 context, MaterialPageRoute(builder: (context) => InfoElement(indexValue: index, serie: elemento.serie))
                             );
