@@ -37,94 +37,92 @@ class InfoElement extends StatelessWidget {
                     right: 20,
                     bottom: 20,
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(5, 30, 5, 0),
+                      padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+                      width: 450,
+                      height: 300,
 
-                      width: 300,
-                        height: 450,
                         decoration: BoxDecoration(
                           borderRadius : BorderRadius.only(
-                            topLeft: Radius.circular(0),
-                            topRight: Radius.circular(0),
-                            bottomLeft: Radius.circular(0),
-                            bottomRight: Radius.circular(0),
-
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
                           ),
                           color : getColor(serie),
                         ),
                         child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.center,
-                                child: Text('Simbolo: $simbolo', textAlign: TextAlign.center, style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Inter',
-                                    fontSize: 34,
-                                    letterSpacing: 5 /*percentages not used in flutter. defaulting to zero*/,
-                                    fontWeight: FontWeight.normal,
-                                    height: 2
-                                ),)
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                                child: Text('Nombre: $nombre', textAlign: TextAlign.center, style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Inter',
-                                    fontSize: 30,
-                                    letterSpacing: 2 /*percentages not used in flutter. defaulting to zero*/,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1.5
-                                ),)
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                                child: Text('Serie: $serielement', textAlign: TextAlign.center, style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Inter',
-                                    fontSize: 28,
-                                    letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1.5
-                                ),)
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                                child: Text('Número atomico: $numeroAtomico', textAlign: TextAlign.center, style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Inter',
-                                    fontSize: 28,
-                                    letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1.5
-                                ),)
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                                child: Text('Masa atomica: $masa', textAlign: TextAlign.left, style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Inter',
-                                    fontSize:20,
-                                    letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1.5
-                                ),)
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Text('Nombre del descubridor: $descubridor', textAlign: TextAlign.center, style: TextStyle(
-                                  color: Color.fromRGBO(0, 0, 0, 1),
-                                  fontFamily: 'Inter',
-                                  fontSize: 24,
-                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1.5
-                              ),
-                              ),
-                            )
+                            children: [
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
 
-                          ],
+                                  children:[
+   Expanded(child:Text(numeroAtomico.toString(), textAlign: TextAlign.left, style: TextStyle(
+                                        color: Color.fromRGBO(0, 0, 0, 1),
+                                        fontFamily: 'Inter',
+                                        fontSize: 60,
+                                        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                        fontWeight: FontWeight.normal,
+                                        height: 1),
+                                    ), ),
+                                 Text(masa.toString(), textAlign: TextAlign.left, style: TextStyle(
+                                        color: Color.fromRGBO(0, 0, 0, 1),
+                                        fontFamily: 'Inter',
+                                        fontSize: 30,
+                                        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                        fontWeight: FontWeight.normal,
+                                        height: 1),
+                                    )
+                                  ]
+                              ),
+
+                              Align(
+                                  alignment: Alignment.center,
+
+                                  child: Text(simbolo.toString(), textAlign: TextAlign.left, style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontFamily: 'Inter',
+                                      fontSize: 128,
+                                      letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                      fontWeight: FontWeight.normal,
+                                      height: 1
+                                  ),)
+                              ),
+                        Align(
+                                  alignment: Alignment.center,
+                                  child: Text(nombre.toString(), textAlign: TextAlign.center, style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontFamily: 'Inter',
+                                      fontSize: 40,
+                                      letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                      fontWeight: FontWeight.normal,
+                                      height: 1
+                                  ),)
+                              ),
+                              Align(
+                                  alignment: Alignment.center,
+                                  child: Text('Lo descubrio '+descubridor.toString(), textAlign: TextAlign.center, style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontFamily: 'Inter',
+                                      fontSize: 30,
+                                      letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                      fontWeight: FontWeight.normal,
+                                      height: 1.5
+                                  ),)
+                              ),
+                              Align(
+                                  alignment: Alignment.center,
+                                  child: Text(serie.toString().toUpperCase(), textAlign: TextAlign.center, style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontFamily: 'Inter',
+                                      fontSize: 30,
+                                      letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                      fontWeight: FontWeight.normal,
+                                      height: 2
+                                  ),)
+                              ),
+                            ]
                         ),
-
-                    )
+                    )//HASTA AQUI
                 )
               ]
           )
