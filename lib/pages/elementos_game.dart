@@ -9,6 +9,7 @@ class GameElement extends StatelessWidget {
   final int indexValue;
   bool mostrar = false;
   final myController = TextEditingController();
+  double paddingTransfer = 80;
 
    GameElement({Key? key, required this.indexValue}) : super(key: key);
   List<Elemento> TablaPeriodicaJson = getData();
@@ -17,10 +18,12 @@ class GameElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      List<Elemento> tablaPeriodicaJson = getData();
+    int indexTrans = indexValue+1;
+
+    List<Elemento> tablaPeriodicaJson = getData();
     return Scaffold(
         appBar: AppBar(
-          title: Text('Nivel'
+          title: Text('Nivel $indexTrans'
       ),
         ),
         body: Container(
@@ -34,43 +37,88 @@ class GameElement extends StatelessWidget {
         child: Stack(
             children: <Widget>[
               Positioned(
-                  top: 0,
+                  top: 10,
                   left: 20,
                   right: 20,
-                  bottom: 190,
+                  bottom: 180,
                   child: Container(
-                      width: 350,
-                      height: 200,
+                    padding: EdgeInsets.fromLTRB(5, paddingTransfer, 5, 0),
+                      width: 450,
+                      height: 300,
                       decoration: BoxDecoration(
-                        image: DecorationImage(
+                        color: Color.fromRGBO(35, 178, 197, 1.0),                       /* image: DecorationImage(
                           image: AssetImage(
                               'assets/fondo_ejercicio.png'),
-                        )
+                        )*/
                       ),
-                      child: Align(
-                    alignment: Alignment.center,
-                    child: Text(tablaPeriodicaJson[indexValue].simbol, textAlign: TextAlign.left, style: TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 1),
-                        fontFamily: 'Inter',
-                        fontSize: 128,
-                        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                        fontWeight: FontWeight.normal,
-                        height: 1
-                    ),)
+
+
+
+                    child: Column(
+
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+
+                            children:[
+
+                              if (mostrar) Expanded(child:Text(tablaPeriodicaJson[indexValue].electrones.toString(), textAlign: TextAlign.left, style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                                fontFamily: 'Inter',
+                                fontSize: 60,
+                                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                fontWeight: FontWeight.normal,
+                                height: 1),
+                            ), ),
+                              if (mostrar) Text(tablaPeriodicaJson[indexValue].masa.toString(), textAlign: TextAlign.left, style: TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 1),
+                            fontFamily: 'Inter',
+                            fontSize: 30,
+                            letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                            fontWeight: FontWeight.normal,
+                            height: 1),
+                        )
+  ]
+                        ),
+
+                        Align(
+                            alignment: Alignment.center,
+
+                            child: Text(tablaPeriodicaJson[indexValue].simbol, textAlign: TextAlign.left, style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                                fontFamily: 'Inter',
+                                fontSize: 128,
+                                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                fontWeight: FontWeight.normal,
+                                height: 1
+                            ),)
+                        ),
+                        if (mostrar) Align(
+                            alignment: Alignment.center,
+                            child: Text('Lo descubrio :'+tablaPeriodicaJson[indexValue].nombreDescubridor, textAlign: TextAlign.center, style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                                fontFamily: 'Inter',
+                                fontSize: 24,
+                                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                                fontWeight: FontWeight.normal,
+                                height: 1
+                            ),)
+                        ),
+                      ]
                   ),
               ),
 
 
             ), Positioned(
-                top: 260,
+                top: 280,
                 left: 20,
                 right: 20,
-                bottom: 140,
+                bottom: 120,
                 child: Container(
                   width: 309,
                   height: 244,
                   decoration: BoxDecoration(
-                    color : Color.fromRGBO(128, 255, 125, 1.0),
+                    color : Color.fromRGBO(199, 229, 111, 1.0),
 
                   ),
                   child: Align(
@@ -112,15 +160,19 @@ class GameElement extends StatelessWidget {
 
                       Expanded(
                         child: MaterialButton(
+                          splashColor: Colors.deepPurple,
                           minWidth: 200.0,
                           height: 40.0,
                           onPressed: () {
+
                  mostrar = true;
+                 paddingTransfer = 5;
                  (context as Element).markNeedsBuild();
 
                           },
-                          color: Colors.lightBlue,
-                          child: Text('Ayuda', style: TextStyle(color: Colors.white)),
+                          color: Color.fromRGBO(124, 236, 191, 1.0),
+
+                          child: Text('Ayuda', style: TextStyle(color: Colors.black)),
                         ),
                       ),
                       Container(
@@ -129,76 +181,19 @@ class GameElement extends StatelessWidget {
                       ),
                       Expanded(
                         child: MaterialButton(
+                          splashColor: Colors.yellow,
                           minWidth: 200.0,
                           height: 40.0,
                           onPressed: () {
                             revisarRespuesta(context);
                           },
 
-                          color: Colors.green,
+                          color: Color.fromRGBO(72, 121, 90, 1.0),
                           child: Text('Revisar', style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     ],
 
-                  )
-              ),
-              if (mostrar) Positioned(
-                  top: 30,
-                  left: 30,
-                  right: 20,
-                  bottom: 20
-                  ,
-                  child: Container(
-                      width: 308,
-                      height: 208,
-                      child: Text(tablaPeriodicaJson[indexValue].electrones.toString(), textAlign: TextAlign.left, style: TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 1),
-                        fontFamily: 'Inter',
-                        fontSize: 60,
-                        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                        fontWeight: FontWeight.normal,
-                        height: 1),
-                      )
-                  )
-              ),
-              if (mostrar) Positioned(
-                  top: 30,
-                  left: 200,
-                  right: 10,
-                  bottom: 20
-                  ,
-                  child: Container(
-                      width: 308,
-                      height: 208,
-                      child: Text(tablaPeriodicaJson[indexValue].masa, textAlign: TextAlign.left, style: TextStyle(
-                          color: Color.fromRGBO(0, 0, 0, 1),
-                          fontFamily: 'Inter',
-                          fontSize: 24,
-                          letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                          fontWeight: FontWeight.normal,
-                          height: 1),
-                      )
-                  )
-              ),
-              if (mostrar) Positioned(
-                  top: 180,
-                  left: 20 ,
-                  right: 20,
-                  bottom: 20
-                  ,
-                  child: Container(
-                      width: 308,
-                      height: 208,
-                      child: Text('Lo descubrio '+ tablaPeriodicaJson[indexValue].nombreDescubridor, textAlign: TextAlign.center, style: TextStyle(
-                          color: Color.fromRGBO(0, 0, 0, 1),
-                          fontFamily: 'Inter',
-                          fontSize: 24,
-                          letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                          fontWeight: FontWeight.normal,
-                          height: 1,
-                          ),
-                      )
                   )
               ),
 
@@ -234,9 +229,13 @@ class GameElement extends StatelessWidget {
             new ElevatedButton(
               child: new Text("Siguiente nivel"),
               onPressed: () {
-                Navigator.pushAndRemoveUntil(
+                Navigator.pop(context);
+                Navigator.pop(context);
+
+
+                Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => GameElement( indexValue:indexValue+1,)), (Route<dynamic> route) => route.isCurrent );
+                    MaterialPageRoute(builder: (context) => GameElement( indexValue:indexValue+1,)));
                 ;},
             ),
           ],

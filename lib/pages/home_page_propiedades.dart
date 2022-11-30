@@ -38,6 +38,7 @@ class InicioProp extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent (maxCrossAxisExtent: 150),
                       itemBuilder: (BuildContext context, int index){
+                        int indexTransformed = index + 1;
                         print('_builderGridViewBuilder $index');
 
                         return Card(
@@ -55,13 +56,13 @@ class InicioProp extends StatelessWidget {
                                     //color : Color.fromRGBO(217, 217, 217, 1),
                                     image: DecorationImage(
                                       image: AssetImage(
-                                          'assets/icono_nivel.png'),
+                                          'assets/icono.png'),
                                     ),
                                   ),
                                 ),
                                 const Divider(),
                                 Text(
-                                  'Nivel $index',
+                                  'Nivel $indexTransformed',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontSize: 16,
@@ -69,10 +70,7 @@ class InicioProp extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            onTap: (){ Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => GameElement( indexValue: index,)));
-                              print('Row $index');
+                            onTap: (){
                               Navigator.push(context,
                               MaterialPageRoute(builder: (context) => Propiedades(indexValue: index))
                               );
